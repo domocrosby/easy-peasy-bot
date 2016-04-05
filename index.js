@@ -94,12 +94,14 @@ controller.hears(
     }
 );
 
+// TODO : try and access for a specific user
 controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
         var beans = {id: 'cool', beans: ['pinto', 'garbanzo']};
-        console.log(controller.storage)
+        console.log(bot);
+        console.log(controller.storage);
         controller.storage.teams.save(beans);
         console.log(controller.storage.teams.get('cool'))
         bot.reply(message,"check the log");
