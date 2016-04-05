@@ -32,6 +32,7 @@ if (process.env.MONGOLAB_URI) {
     config = {
         storage: BotkitStorage({mongoUri: process.env.MONGOLAB_URI}),
     };
+    console.log("found mongo db")
 } else {
     config = {
         json_file_store: ((process.env.TOKEN)?'./db_slack_bot_ci/':'./db_slack_bot_a/'), //use a different name if an app or CI
@@ -69,7 +70,6 @@ if (process.env.TOKEN || process.env.SLACK_TOKEN) {
 // Handle events related to the websocket connection to Slack
 controller.on('rtm_open', function (bot) {
     console.log('** The RTM api just connected!');
-    bot.say('HelloMOFO!');
 });
 
 controller.on('rtm_close', function (bot) {
