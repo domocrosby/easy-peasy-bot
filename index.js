@@ -99,9 +99,9 @@ controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        var beans = controller.storage.teams.get('cool',function(){console.log(beans)});
-        console.log('i love' + beans);
-        bot.reply(message,"check the log");
+        var beans = controller.storage.teams.get('cool',function(err, user_data){console.log(user_data)});
+        
+        bot.reply(message,message.user);
     }
 );
 
