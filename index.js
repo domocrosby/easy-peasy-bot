@@ -98,9 +98,8 @@ controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        var test2 = controller.storage.teams.get('T0BPY9UBV');
-        console.log(test2)
-        bot.reply(message,test2['url']);
+        console.log(controller.storage.teams.get("T0BPY9UBV"))
+        bot.reply(message,"check the log");
     }
 );
 
