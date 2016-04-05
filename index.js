@@ -99,11 +99,8 @@ controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        var beans = {id: 'cool', beans: ['pinto', 'garbanzo']};
-        console.log(bot);
-        console.log(controller.storage);
-        controller.storage.teams.save(beans);
-        console.log(controller.storage.teams.get('cool'))
+        var beans = controller.storage.teams.get('cool',function(){console.log(beans)});
+        console.log('i love' + beans);
         bot.reply(message,"check the log");
     }
 );
