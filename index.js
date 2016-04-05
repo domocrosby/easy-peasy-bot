@@ -94,6 +94,18 @@ controller.hears(
     }
 );
 
+controller.hears(
+    ['test'],
+    ['direct_mention', 'mention', 'direct_message'],
+    function(bot,message) {
+        console.log(controller)
+        console.log(controller.storage)
+        var test2 = controller.storage.teams.get('T0BPY9UBV');
+        console.log()
+        bot.reply(message,test2['url']);
+    }
+);
+
 /**
  * AN example of what could be:
  * Any un-handled direct mention gets a reaction and a pat response!
