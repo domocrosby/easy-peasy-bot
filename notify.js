@@ -31,8 +31,7 @@ if (process.env.MONGOLAB_URI) {
     var BotkitStorage = require('botkit-storage-mongo');
     config = {
         storage: BotkitStorage({mongoUri: process.env.MONGOLAB_URI}),
-    };
-    console.log("found mongo db")
+    };=
 } else {
     config = {
         json_file_store: ((process.env.TOKEN)?'./db_slack_bot_ci/':'./db_slack_bot_a/'), //use a different name if an app or CI
