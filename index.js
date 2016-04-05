@@ -98,7 +98,10 @@ controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        console.log(controller.storage.teams.get("T0BPY9UBV"))
+        var beans = {id: 'cool', beans: ['pinto', 'garbanzo']};
+        console.log(controller.storage.tasks.get)
+        controller.storage.tasks.save(beans);
+        console.log(controller.storage.tasks.get('cool'))
         bot.reply(message,"check the log");
     }
 );
