@@ -98,10 +98,8 @@ controller.hears(
     ['test'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        console.log(controller)
-        console.log(controller.storage)
         var test2 = controller.storage.teams.get('T0BPY9UBV');
-        console.log()
+        console.log(test2)
         bot.reply(message,test2['url']);
     }
 );
