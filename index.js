@@ -96,12 +96,14 @@ controller.hears(
 
 // TODO : try and access for a specific user
 controller.hears(
-    ['test'],
+    ['add (.*)'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        var beans = controller.storage.teams.get('cool',function(err, user_data){console.log(user_data)});
-        
-        bot.reply(message,message.user);
+        console.log(message);
+        var taskToAdd = message.match[1];
+        console.log(taskToAdd);
+        var beans = controller.storage.users.save({id: message.user, task: taskToAdd}, function(err) {});
+        bot.reply(message,message.user + " added to tasks");
     }
 );
 
