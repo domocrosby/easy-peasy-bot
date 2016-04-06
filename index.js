@@ -115,7 +115,7 @@ controller.hears(
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
         controller.storage.users.save({id: message.user, task: []}, function(err) {
-            bot.reply("wiped tasks");
+            bot.reply(message, "wiped tasks");
         });
     }
 );
