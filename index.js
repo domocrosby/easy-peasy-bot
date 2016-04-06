@@ -104,6 +104,8 @@ controller.hears(
             console.log(user_data);
             var tasks = user_data.task;
             console.log(tasks);
+            console.log(typeof tasks);
+            console.log(typeof message.match[1]);
             if (tasks.length === 0) {
                 tasks = [ message.match[1] ]
             }else{
