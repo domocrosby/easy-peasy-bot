@@ -104,6 +104,7 @@ controller.hears(
             console.log(user_data);
             var tasks = user_data.task;
             tasks = tasks.push(message.match[1]);
+            console.log(tasks);
             controller.storage.users.save({id: message.user, task: tasks}, function(err) {
                 bot.reply(message,message.match[1] + " added to tasks");
             });
