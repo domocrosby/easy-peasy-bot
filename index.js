@@ -114,9 +114,8 @@ controller.hears(
     ['wipe all tasks'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-            controller.storage.users.save({id: message.user, task: []}, function(err) {
-                bot.reply("wiped tasks");
-            });
+        controller.storage.users.save({id: message.user, task: []}, function(err) {
+            bot.reply("wiped tasks");
         });
     }
 );
