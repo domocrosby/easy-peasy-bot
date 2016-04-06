@@ -101,14 +101,8 @@ controller.hears(
     function(bot,message) {
         controller.storage.users.get(message.user,function(err, user_data){
             console.log('*** received tasks');
-            console.log(user_data);
             var tasks = user_data.task;
-            console.log(tasks);
-            console.log(typeof tasks);
-            console.log(typeof message.match[1]);
-            //tasks = tasks.push(message.match[1])
-            tasks.push('testing');
-            console.log(tasks);
+            tasks.push(message.match[1])
             controller.storage.users.save({id: message.user, task: tasks}, function(err) {
                 bot.reply(message,message.match[1] + " added to tasks");
             });
