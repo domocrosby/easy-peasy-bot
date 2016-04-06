@@ -103,6 +103,7 @@ controller.hears(
             console.log('*** received tasks');
             console.log(user_data);
             var tasks = user_data.task;
+            console.log(tasks);
             tasks = tasks.push(message.match[1]);
             console.log(tasks);
             controller.storage.users.save({id: message.user, task: tasks}, function(err) {
