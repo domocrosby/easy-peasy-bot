@@ -99,11 +99,14 @@ controller.hears(
     ['add (.*)'],
     ['direct_mention', 'mention', 'direct_message'],
     function(bot,message) {
-        console.log(message);
-        var taskToAdd = message.match[1];
-        console.log(taskToAdd);
-        var beans = controller.storage.users.save({id: message.user, task: taskToAdd}, function(err) {});
-        bot.reply(message,message.user + " added to tasks");
+        controller.storage.users.get(message.user,function(err, user_data){
+            console.log('*** received tasks');
+            console.log(user_data);
+            var tasks = user_data.tasks.push(message.match[1])
+            controller.storage.users.save({id: message.user, task: tasks}, function(err) {
+                bot.reply(message,message.match[1] + " added to tasks");
+            });
+        });
     }
 );
 
